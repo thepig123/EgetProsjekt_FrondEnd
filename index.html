@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<link href="index.css" rel="stylesheet">
-	<script src="index.js"></script>
 	<!-- <script src="sorttable.js"></script> -->
 	<title>Website</title>
 </head>
@@ -16,7 +15,7 @@
 		</div>
 	</header>
 	<h3 id="top-rated">Sangene fra klassen</h3>
-	<main>
+	<main id="app">
 		<section>
 			<table class="sortable">
 				<tr>
@@ -25,97 +24,15 @@
 					<th>La til</th>
 					<th>Score</th>
 				</tr>
-				<tr>
-					<td>For the Few</td>
-					<td>SIBIIR</td>
-					<td>Tommy</td>
-					<td>?</td>
-				</tr><tr>
-					<td>When the Sun Hits</td>
-					<td>Slowdive</td>
-					<td>Odd Ivar</td>
-					<td>?</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
-				</tr><tr>
-					<td>Theodor</td>
-					<td>Grannateple</td>
-					<td>Panda</td>
-					<td>Krem</td>
+
+				<!-- loops through vue data array "tracks" and gets each json object and populates the data respectively -->
+				<tr v-for="track in tracks">
+					<td>{{ track.name }}</td>
+					<td>{{ track.artist }}</td>
+					<td>{{ track.addedBy }}</td>
+					<td>{{ track.score }}</td>
 				</tr>
+
 			</table>
 		</section>
 		<article>
@@ -139,5 +56,9 @@
 			</div>
 		</article>
 	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="main.js"></script>
 </body>
 </html>
