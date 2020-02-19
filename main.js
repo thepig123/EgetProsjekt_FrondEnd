@@ -60,7 +60,7 @@ var app = new Vue({
 		getTracks() {
 
 			// We use Axios to get data from the api
-			axios.get('http://localhost:3000/tracks')
+			axios.get('http://localhost:8080/tracks')
 				.then((response) => {
 					console.log(response)
 					this.tracks = response.data

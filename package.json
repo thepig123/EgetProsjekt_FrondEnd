@@ -1,0 +1,24 @@
+{
+  "name": "egetprosjekt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "gulp browser-sync"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thepig123/EgetProsjekt_FrondEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thepig123/EgetProsjekt_FrondEnd/issues"
+  },
+  "homepage": "https://github.com/thepig123/EgetProsjekt_FrondEnd#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2"
+  }
+}
