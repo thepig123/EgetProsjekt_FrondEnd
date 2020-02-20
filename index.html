@@ -10,11 +10,11 @@
 	<header>
 		<h1>Klasseliste</h1>
 		<div id="dark-mode-toggle">
-				<nav>
-					<ul>
-						<li><a href="login.html"></a>Login</li>
-					</ul>
-				</nav>
+			<nav>
+				<ul>
+					<li><a href="login.html"></a>Login</li>
+				</ul>
+			</nav>
 		</div>
 	</header>
 	<h3 id="top-rated">Sangene fra klassen</h3>
@@ -24,7 +24,6 @@
 				<tr>
 					<th>Sang</th>
 					<th>Artist</th>
-					<th>La til</th>
 					<th>Score</th>
 				</tr>
 
@@ -32,7 +31,6 @@
 				<tr v-for="track in tracks">
 					<td>{{ track.name }}</td>
 					<td>{{ track.artist }}</td>
-					<td>{{ track.addedBy }}</td>
 					<td>{{ track.score }}</td>
 				</tr>
 
