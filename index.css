@@ -20,7 +20,7 @@ body
 header
 {
 	background: #1DB954;
-	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 3px 3px 10px var(--shadow);
 	display: flex;
 	align-items: center;
 }
@@ -103,7 +103,7 @@ table
 	width: 100%;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-collapse: collapse;
-	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 3px 3px 10px var(--shadow);
 	border-radius: 10px;
 	overflow: hidden;
 }
@@ -131,7 +131,7 @@ td
 	overflow: hidden;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	margin: 0px 0px 2em 2em;
-	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 3px 3px 10px var(--shadow);
 }
 
 .recomendation h3
