@@ -30,6 +30,7 @@ window.onload = () => {
 		setDark()
 	}
 
+
 	// Darkmode button
 	document.getElementById("dark-mode-toggle").onclick = () => {
 		if (darkmode) {
