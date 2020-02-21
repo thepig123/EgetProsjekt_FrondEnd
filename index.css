@@ -76,7 +76,6 @@ header ul li a:hover::after
 	--size: 2em;
 	width: var(--size);
 	height: var(--size);
-	border: 2px solid #ffffff;
 	border-radius: 50%;
 	margin-right: 3rem;
 	cursor: pointer;
