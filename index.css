@@ -3,6 +3,7 @@
 	--title: #151515;
 	--content: #000000;
 	--background: #ffffff;
+	--shadow: rgba(0, 0, 0, 0.1);
 }*
 {
 	margin: 0px;
@@ -46,6 +47,10 @@ header ul li a
 	color: #ffffff;
 	text-decoration: none;
 	margin: 0.8em;
+	margin-left: -1125px;
+	font-size: 28px;
+	position: relative;
+	top: -22.5px;
 }
 header ul li a::after
 {
