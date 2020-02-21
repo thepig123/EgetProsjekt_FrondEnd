@@ -26,16 +26,19 @@ window.onload = () => {
 
 	// Check if darkmode
 	let darkmode = localStorage.getItem("darkmode") == "true"
-	if (darkmode == true) {
+	if (darkmode == true) 
+	{
 		setDark()
 	}
 
 
 	// Darkmode button
 	document.getElementById("dark-mode-toggle").onclick = () => {
-		if (darkmode) {
+		if (darkmode) 
+		{
 			setLight()
-		} else if (!darkmode) {
+		} else if (!darkmode) 
+		{
 			setDark()
 		}
 		darkmode = !darkmode
