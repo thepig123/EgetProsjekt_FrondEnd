@@ -1,0 +1,125 @@
+:root
+{
+	--title: #151515;
+	--content: #000000;
+	--background: #ffffff;
+	--shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: var(--background);
+}
+
+
+header {
+	background: #1DB954;
+	box-shadow: 3px 3px 10px var(--shadow);
+	display: flex;
+	align-items: center;
+	h1 {
+		color: #ffffff;
+		padding: 0.8em;
+		flex: 1;
+	}
+	ul {
+		list-style-type: none;
+		li {
+			display: inline;
+			a {
+				display: inline-block;
+				color: #ffffff;
+				text-decoration: none;
+				margin: 0.8em;
+				margin-left: -1125px;
+				font-size: 28px;
+				position: relative;
+				top: -22.5px;
+				&::after {
+					content: "";
+					display: block;
+					margin-left: 50%;
+					width: 0%;
+					height: 1.5px;
+					margin-top: 2px;
+					background: #ffffff;
+					transition: 100ms;
+				}
+				&:hover::after {
+					margin-left: 0%;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+#dark-mode-toggle {
+	--size: 2em;
+	width: var(--size);
+	height: var(--size);
+	border: 2px solid #ffffff;
+	border-radius: 50%;
+	margin-right: 3rem;
+	cursor: pointer;
+}
+
+
+.main {
+	width: 70%;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	margin-top: 100px;
+	section {
+		flex: 2;
+	}
+	
+	table {
+		width: 100%;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-collapse: collapse;
+		box-shadow: 3px 3px 10px var(--shadow);
+		border-radius: 10px;
+		overflow: hidden;
+
+		tr:nth-child(odd) {
+			background: rgba(0, 0, 0, 0.001);
+		}
+		th {
+			text-align: left;
+			color: #ffffff;
+			background: #1DB954;
+			padding: 1em 3em;
+		}
+		td {
+			color: var(--content);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			padding: 0.5em 1em;
+		}
+	}
+}
+
+.recomendation {
+	border-radius: 10px;
+	overflow: hidden;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	margin: 0px 0px 2em 2em;
+	box-shadow: 3px 3px 10px var(--shadow);
+	h3 {
+		color: #ffffff;
+		background: #1DB954;
+		padding: 0.5em;
+	}
+	p {
+		color: var(--content);
+		padding: 1em;
+	}
+}
+

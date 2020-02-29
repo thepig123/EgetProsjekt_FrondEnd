@@ -25,20 +25,18 @@ function setLight() {
 window.onload = () => {
 
 	// Check if darkmode
+	setDark()
 	let darkmode = localStorage.getItem("darkmode") == "true"
-	if (darkmode == true) 
-	{
+	if (darkmode == true) {
 		setDark()
 	}
 
 
 	// Darkmode button
 	document.getElementById("dark-mode-toggle").onclick = () => {
-		if (darkmode) 
-		{
+		if (darkmode) {
 			setLight()
-		} else if (!darkmode) 
-		{
+		} else if (!darkmode) {
 			setDark()
 		}
 		darkmode = !darkmode
@@ -62,18 +60,42 @@ var app = new Vue({
   },
 	methods: {
 
+		getScore(score, count) {
+			return Number(score) / Number(count)
+		},
+
 		// Method (aka. function) for getting data from api
 		getTracks() {
 
 			// We use Axios to get data from the api
-			axios.get('http://localhost:8080/tracks')
+			axios.get('https://api.martin-playlist.v4.is/tracks')
 				.then((response) => {
 					console.log(response)
 					this.tracks = response.data
+					this.sortScores()
 				})
 				.catch((error) => {
 					console.log(error);
 				})
+
+		},
+
+		vote(id) {
+			const score = prompt('Skriv inn score av ti. Bruk punktum for desimaltall.')
+			axios.post('https://api.martin-playlist.v4.is/vote', {
+				id: id,
+				score: score
+			})
+			.then(function (response) {
+    		console.log(response);
+  		})
+  		.catch(function (error) {
+    		console.log(error);
+  		});
+		},
+
+		// Sort scores after most scores
+		sortScores() {
 
 		}
 	},

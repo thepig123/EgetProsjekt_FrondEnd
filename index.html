@@ -6,40 +6,35 @@
 	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<title>Klasseliste</title>
 </head>
+
 <body>
+
 	<header>
 		<h1>Klasseliste</h1>
 		<div id="dark-mode-toggle">
 			<nav>
 				<ul>
-					<li><a href="login.html">Vote</a></li>
+					<li><a href="login.html">Admin</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
-		<div class="dropdown">
-			<button class="dropbtn">Dropdown</button>
-			<div class="dropdown-content">
-				 <y href="#">Link 1</y>
-				 <y href="#">Link 2</y>
-				 <y href="#">Link 3</y>
-			</div>
-		</div>
-	<h3 id="top-rated"></h3>
-	<main id="app">
+
+	<main id="app" class="main">
 		<section>
 			<table class="sortable">
 				<tr>
 					<th>Sang</th>
 					<th>Artist</th>
-					<th>Score</th>
+					<th>Gjennomsnittlig score</th>
 				</tr>
 
 				<!-- loops through vue data array "tracks" and gets each json object and populates the data respectively -->
 				<tr v-for="track in tracks">
 					<td>{{ track.name }}</td>
 					<td>{{ track.artist }}</td>
-					<td>{{ track.score }}</td>
+					<td>{{ getScore(track.score, track.scoreCount) }}</td>
+					<td><button type="button" @click="vote(track.id)">{{ track.id}}Stem</button></td>
 				</tr>
 
 			</table>
@@ -52,13 +47,13 @@
 				</p>
 			</div>
 			<div id="Klassens nest beste" class="recomendation">
-				<h3>Ant beste sang</h3>
+				<h3>Andreplass</h3>
 				<p>
 				Sang som er nummer 2
 				</p>
 			</div>
 			<div id="Klassens tredje" class="recomendation">
-				<h3>Tredje beste sang</h3>
+				<h3>Tredjeplass</h3>
 				<p>
 				Sang som er nummer 3
 				</p>
@@ -66,7 +61,7 @@
 		</article>
 	</main>
 
-	<link href="oppsett.css" rel="stylesheet">
+	<link href="dist/oppsett.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="main.js"></script>
