@@ -68,7 +68,8 @@ var app = new Vue({
 		getTracks() {
 
 			// We use Axios to get data from the api
-			axios.get('https://api.martin-playlist.v4.is/tracks')
+			//axios.get('https://api.martin-playlist.v4.is/tracks')	
+			axios.get('http://localhost:8080/tracks')
 				.then((response) => {
 					console.log(response)
 					this.tracks = response.data
@@ -82,9 +83,14 @@ var app = new Vue({
 
 		vote(id) {
 			const score = prompt('Skriv inn score av ti. Bruk punktum for desimaltall.')
-			axios.post('https://api.martin-playlist.v4.is/vote', {
-				id: id,
-				score: score
+			//axios.post('https://api.martin-playlist.v4.is/vote', {
+			axios({
+  			method: 'post',
+  			url: 'http://localhost:8080/vote',
+  			query: {
+					id: id,
+					score: score
+				}
 			})
 			.then(function (response) {
     		console.log(response);

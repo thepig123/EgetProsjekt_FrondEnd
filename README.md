@@ -4,6 +4,6 @@
 
 ```
 $ npm install
-$ npm run dev
+$ gulp
 
 ```
