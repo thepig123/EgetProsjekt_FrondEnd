@@ -28,7 +28,7 @@
 				<tr v-for="track in tracks">
 					<td>{{ track.name }}</td>
 					<td>{{ track.artist }}</td>
-					<td><button type="button" @click="addTrack(track.id)">Legg inn</button></td>
+					<td><button id="stemmeknapp" type="button" @click="addTrack(track.id)">Legg inn</button></td>
 				</tr>
 
 			</table>
@@ -46,6 +46,25 @@
 				</form>	
 				</div>	
 		</section>
+
+		<style>
+		 header #admin
+		{
+			text-decoration: none;
+			font-size: 1.2em;
+			color: #ffffff;
+			background: rgba(0, 0, 0, 0.2);
+			border: none;
+			outline: none;
+			border-radius: 15px;
+			padding: 10px;
+			transition: 200ms;
+			cursor: pointer;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%)
+		}
+		</style>
 
 
 	</main>
