@@ -70,7 +70,7 @@ var app = new Vue({
 				.then((response) => {
 					this.token = response.data
 
-					this.getTracks()
+					this.getImported()
 				})
 				.catch((error) => {
 					console.log(error);
@@ -80,16 +80,16 @@ var app = new Vue({
 		},
 
 		addTrack(id) {
-			axios.get('https://api.martin-playlist.v4.is/submit?id'+ id +'&token='+ this.token)	
+			axios.get('https://api.martin-playlist.v4.is/submit?id='+ id +'&token='+ this.token)	
 				.then((response) => {
-					alert(response)
+					alert(response.data)
 				})
 				.catch((error) => {
 					console.log(error);
 				})
 
 
-		}
+		},
 
 		getScore(score, count) {
 			return Number(score) / Number(count)
@@ -111,6 +111,21 @@ var app = new Vue({
 				})
 
 		},
+
+		getImported() {
+
+			axios.get('https://api.martin-playlist.v4.is/imported')	
+				.then((response) => {
+					console.log(response)
+					this.tracks = response.data
+					this.sortScores()
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+
+		},
+
 
 		vote(id) {
 			const score = prompt('Skriv inn score av ti. Bruk punktum for desimaltall.')
