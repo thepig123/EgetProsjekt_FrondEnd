@@ -35,32 +35,19 @@
 		</section>
 
 		<section class="login" v-else>
-			<form>
-				<input type="password" v-model="password" placeholder="passord">
-				<button type="button" @click="login">Logg inn</button>
-			</form>
+				<div class="box">
+					<form>
+						<span class="text-center">login</span>
+					<div class="input-container">		
+						<input type="mail" required=""/>
+						<label>Passord</label>
+					</div>
+						<button type="button" class="btn">Login</button>
+				</form>	
+				</div>	
 		</section>
 
-		<aside>
-			<div id="Klassens beste" class="recomendation">
-				<h3>Beste sangen</h3>
-				<p>
-				Her komme den beste sangen
-				</p>
-			</div>
-			<div id="Klassens nest beste" class="recomendation">
-				<h3>Andreplass</h3>
-				<p>
-				Sang som er nummer 2
-				</p>
-			</div>
-			<div id="Klassens tredje" class="recomendation">
-				<h3>Tredjeplass</h3>
-				<p>
-				Sang som er nummer 3
-				</p>
-			</div>
-		</aside>
+
 	</main>
 
 	<link href="dist/oppsett.css" rel="stylesheet">
