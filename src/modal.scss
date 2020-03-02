@@ -1,0 +1,112 @@
+#signindarken
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+	z-index: 3;
+}
+#signin
+{
+	background: var(--background);
+	text-align: center;
+	position: fixed;
+	width: 40vw;
+	height: 40vh;
+	top: -50vh;
+	left: 30vw;
+	border-radius: 20px;
+	padding: 20px;
+	transition: 0.5s;
+	z-index: 4;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+#signin h1
+{
+	font-weight: 700;
+	color: var(--title);
+	margin-bottom: 1em;
+}
+#signin input
+{
+	font-size: 1.2em;
+	background: none;
+	color: var(--content);
+	/* margin: 20px; */
+	/* background: linear-gradient(to right, #1db954, transparent);
+	background-size: 0px;
+	background-repeat: no-repeat; */
+	border: 0px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	padding: 5px;
+	outline: none;
+	transition: 200ms;
+	width: 100%;
+}
+/* #signin input:focus
+{
+	/* background-size: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 10px; 
+} */
+#signin input::placeholder
+{
+	color: var(--content);
+}
+#signin button
+{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.2em;
+	color: var(--content);
+	background-color: rgba(0, 0, 0, 0.1);
+	border: none;
+	outline: none;
+	border-radius: 15px;
+	margin: 10px;
+	padding: 10px;
+	transition: 0.1s;
+	cursor: pointer;
+}
+#signin button:hover
+{
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+#signin .container
+{
+	width: 50%;
+	margin: auto;
+}
+
+#signin .container::after
+{
+	content: "";
+	display: block;
+	width: 0px;
+	height: 2px;
+	margin-left: 50%;
+	background: transparent;
+	transition: 200ms;
+}
+
+
+#signin .container.focused::after
+{
+	width: 100%;
+	margin-left: 0px;
+	background: #1db954;
+}
+
+#dark-mode-toggle
+{
+	--size: 2em;
+	width: var(--size);
+	height: var(--size);
+	border: 2px solid #ffffff;
+	border-radius: 50%;
+	margin-right: 3rem;
+	cursor: pointer;
+}
