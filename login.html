@@ -1,2 +1,150 @@
 <!DOCTYPE html>
-<header>saus</header>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<!-- <link href="login.css" rel="stylesheet">
+	<script src="login.js"></script> -->
+	<link href="modal.css" rel="stylesheet">
+	<title>Website</title>
+	<style>
+		*
+		{
+			font-family: 'Roboto', sans-serif;
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+		body
+		{
+			background: var(--background);
+		}
+		header
+		{
+			background: #1db954;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		header h1
+		{
+			font-size: 2em;
+			color: #ffffff;
+			padding: 0.8em;
+		}
+		header #admin
+		{
+			font-size: 1.2em;
+			color: #ffffff;
+			background: rgba(0, 0, 0, 0.2);
+			border: none;
+			outline: none;
+			border-radius: 15px;
+			padding: 10px;
+			transition: 200ms;
+			cursor: pointer;
+		}
+		header #admin:hover
+		{
+			background: rgba(0, 0, 0, 0.4);
+		}
+	</style>
+	<script>
+		// -----------------------------------
+		// Dark mode
+		// ----------------------------------
+		// Dark mode
+		function darktrue()
+		{
+			document.documentElement.style.setProperty("--title", "#ffffff");
+			document.documentElement.style.setProperty("--content", "#d7d7d7");
+			document.documentElement.style.setProperty("--background", "#151515");
+			document.documentElement.style.setProperty("--shadow", "255, 255, 255, 0.1");
+		}
+		// Light mode
+		function darkfalse()
+		{
+			document.documentElement.style.setProperty("--title", "#111111");
+			document.documentElement.style.setProperty("--content", "#000000");
+			document.documentElement.style.setProperty("--background", "#ffffff");
+			document.documentElement.style.setProperty("--shadow", "0, 0, 0, 0.1");
+		}
+
+		// Check if darkmode
+
+		let darkmode
+
+		window.onload = () =>
+		{
+			darkmode = localStorage.getItem("darkmode")
+			if (darkmode == null)	//First visit so set to true
+			{
+				darkmode = true
+			}
+			if (darkmode == "false")	//First visit so set to true
+			{
+				darkmode = false
+			}
+			window["dark" + darkmode]()
+			document.getElementById("dark-mode-toggle").onclick = () =>
+			{
+				darkmode = !darkmode
+				window["dark" + darkmode]()
+				localStorage.setItem("darkmode", darkmode)
+			}
+
+			//Admin
+			document.querySelector("#admin").addEventListener("click", () =>
+			{
+				document.querySelector("#signindarken").style.display = "block"
+				document.querySelector("#signin").style.top = "20vh"
+			})
+
+			document.querySelector("#signindarken").addEventListener("click", () =>
+			{
+				document.querySelector("#signindarken").style.display = "none"
+				document.querySelector("#signin").style.top = "-50vh"
+			})
+
+			const logininputs = document.querySelectorAll("#signin input")
+			logininputs.forEach((input) =>
+			{
+				input.addEventListener("focus", (e) =>
+				{
+					e.target.parentElement.classList.add("focused")
+				})
+				input.addEventListener("blur", (e) =>
+				{
+					e.target.parentElement.classList.remove("focused")
+				})
+			})
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<h1 id="Saus">
+			Saus
+		</h1>
+		<button id="admin">Admin</button>
+		<div id="dark-mode-toggle"></div>
+	</header>
+
+
+
+	<div id="signindarken"></div>
+	<div id="signin">
+		<h1>Log in</h1>
+		<div class="container">
+			<input type="email" id="email" placeholder="Email" autocomplete="off">
+		</div>
+		<br>
+		<div class="container">
+			<input type="password" id="password" placeholder="Password" autocomplete="off">
+		</div>
+		<br>
+		<button>Login</button>
+	</div>
+</body>
+</html>

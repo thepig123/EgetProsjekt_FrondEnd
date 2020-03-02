@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<title>Klasseliste</title>
+</head>
+
+<body>
+
+	<header>
+		<h1>Klasseliste</h1>
+		<div id="dark-mode-toggle"></div>
+	</header>
+
+	<main id="app" class="main">
+		<section>
+			<table class="sortable">
+				<tr>
+					<th>Sang</th>
+					<th>Artist</th>
+					<th>Gjennomsnittlig score</th>
+				</tr>
+
+				<!-- loops through vue data array "tracks" and gets each json object and populates the data respectively -->
+				<tr v-for="track in tracks">
+					<td>{{ track.name }}</td>
+					<td>{{ track.artist }}</td>
+					<td>{{ getScore(track.score, track.scoreCount) }}</td>
+					<td><button type="button" @click="vote(track.id)">{{ track.id}}Stem</button></td>
+				</tr>
+
+			</table>
+		</section>
+		<article>
+			<div id="Klassens beste" class="recomendation">
+				<h3>Beste sangen</h3>
+				<p>
+				Her komme den beste sangen
+				</p>
+			</div>
+			<div id="Klassens nest beste" class="recomendation">
+				<h3>Andreplass</h3>
+				<p>
+				Sang som er nummer 2
+				</p>
+			</div>
+			<div id="Klassens tredje" class="recomendation">
+				<h3>Tredjeplass</h3>
+				<p>
+				Sang som er nummer 3
+				</p>
+			</div>
+		</article>
+	</main>
+
+	<link href="dist/oppsett.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
