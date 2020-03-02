@@ -4,20 +4,107 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="dist/modal.css" rel="stylesheet">
 	<title>Klasseliste</title>
-</head>
+	<style>
+		*
+		{
+			font-family: 'Roboto', sans-serif;
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+		body
+		{
+			background: var(--background);
+		}
+		header
+		{
+			background: #1db954;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		header h1
+		{
+			font-size: 2em;
+			color: #ffffff;
+			padding: 0.8em;
+		}
+		header #admin
+		{
+			font-size: 1.2em;
+			color: #ffffff;
+			background: rgba(0, 0, 0, 0.2);
+			border: none;
+			outline: none;
+			border-radius: 15px;
+			padding: 10px;
+			transition: 200ms;
+			cursor: pointer;
+			position: absolute; left: 670px;
+		}
+		header #admin:hover
+		{
+			background: rgba(0, 0, 0, 0.4);
+		}
+	</style>
 
 <body>
 
 	<header>
 		<h1>Klasseliste</h1>
-		<div id="dark-mode-toggle">
-			<nav>
-				<ul>
-					<li><a href="login.html">Admin</a></li>
-				</ul>
-			</nav>
+		<div id="dark-mode-toggle"></div>
+		<button id="admin">Admin</button>
+
+		<div id="signindarken"></div>
+	<div id="signin">
+		<h1>Log in</h1>
+		<div class="container">
+			<input type="email" id="email" placeholder="Email" autocomplete="off">
 		</div>
+		<br>
+		<div class="container">
+			<input type="password" id="password" placeholder="Password" autocomplete="off">
+		</div>
+		<br>
+		<button>Login</button>
+	</div>
+		
+
+
+
+
+		<script>
+			
+		//Admin
+		document.querySelector("#admin").addEventListener("click", () =>
+		{
+			document.querySelector("#signindarken").style.display = "block"
+			document.querySelector("#signin").style.top = "20vh"
+		})
+
+		document.querySelector("#signindarken").addEventListener("click", () =>
+		{
+			document.querySelector("#signindarken").style.display = "none"
+			document.querySelector("#signin").style.top = "-50vh"
+		})
+
+		const logininputs = document.querySelectorAll("#signin input")
+		logininputs.forEach((input) =>
+		{
+			input.addEventListener("focus", (e) =>
+			{
+				e.target.parentElement.classList.add("focused")
+			})
+			input.addEventListener("blur", (e) =>
+			{
+				e.target.parentElement.classList.remove("focused")
+			})
+		})
+
+		</script>	
+</head>
 	</header>
 
 	<main id="app" class="main">
