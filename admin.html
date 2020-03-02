@@ -15,25 +15,33 @@
 	</header>
 
 	<main id="app" class="main">
-		<section>
+
+
+		<section v-if="token">
 			<table class="sortable">
 				<tr>
 					<th>Sang</th>
 					<th>Artist</th>
-					<th>Gjennomsnittlig score</th>
 				</tr>
 
 				<!-- loops through vue data array "tracks" and gets each json object and populates the data respectively -->
 				<tr v-for="track in tracks">
 					<td>{{ track.name }}</td>
 					<td>{{ track.artist }}</td>
-					<td>{{ getScore(track.score, track.scoreCount) }}</td>
-					<td><button type="button" @click="vote(track.id)">{{ track.id}}Stem</button></td>
+					<td><button type="button" @click="addTrack(track.id)">Legg inn</button></td>
 				</tr>
 
 			</table>
 		</section>
-		<article>
+
+		<section class="login" v-else>
+			<form>
+				<input type="password" v-model="password" placeholder="passord">
+				<button type="button" @click="login">Logg inn</button>
+			</form>
+		</section>
+
+		<aside>
 			<div id="Klassens beste" class="recomendation">
 				<h3>Beste sangen</h3>
 				<p>
@@ -52,7 +60,7 @@
 				Sang som er nummer 3
 				</p>
 			</div>
-		</article>
+		</aside>
 	</main>
 
 	<link href="dist/oppsett.css" rel="stylesheet">

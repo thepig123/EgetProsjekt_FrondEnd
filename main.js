@@ -56,9 +56,40 @@ var app = new Vue({
   el: '#app',
   data: {
 		// This one is currently null, but gets dynamically changed after api data is fetched
-		tracks: null
+		tracks: null,
+
+
+		token: null,
+		password: null
   },
 	methods: {
+
+		login() {
+
+			axios.get('https://api.martin-playlist.v4.is/token?password='+ this.password)	
+				.then((response) => {
+					this.token = response.data
+
+					this.getTracks()
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+
+
+		},
+
+		addTrack(id) {
+			axios.get('https://api.martin-playlist.v4.is/submit?id'+ id +'&token='+ this.token)	
+				.then((response) => {
+					alert(response)
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+
+
+		}
 
 		getScore(score, count) {
 			return Number(score) / Number(count)
