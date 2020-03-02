@@ -43,12 +43,15 @@
 			padding: 10px;
 			transition: 200ms;
 			cursor: pointer;
-			position: absolute; left: 670px;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%)
 		}
 		header #admin:hover
 		{
 			background: rgba(0, 0, 0, 0.4);
 		}
+
 	</style>
 
 <body>
@@ -123,7 +126,7 @@
 					<td>{{ track.name }}</td>
 					<td>{{ track.artist }}</td>
 					<td>{{ getScore(track.score, track.scoreCount) }}</td>
-					<td><button type="button" @click="vote(track.id)">Stem</button></td>
+					<td><button id="stemmeknapp" type="button" @click="vote(track.id)">Stem</button></td>
 				</tr>
 
 			</table>
